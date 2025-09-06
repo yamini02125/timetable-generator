@@ -1,21 +1,28 @@
-import React from "react";
+import { Settings, User } from "lucide-react";
 
-export default function Header() {
+export default function Header({ setActiveTab }) {
   return (
-    <div className="flex justify-between items-center mb-6">
-      <h1 className="text-2xl font-bold text-gray-800">Welcome Back, Yamini!</h1>
-      <div className="flex items-center space-x-4">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="px-4 py-2 border rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-purple-400"
-        />
-        <img
-          src="https://i.pravatar.cc/40"
-          alt="profile"
-          className="w-10 h-10 rounded-full"
-        />
+    <header className="bg-white shadow p-4 flex justify-between items-center">
+      <h1 className="text-xl font-bold text-indigo-600">Timetable Generator</h1>
+
+      {/* Right side icons */}
+      <div className="flex items-center gap-4">
+        <button
+          onClick={() => setActiveTab("settings")}
+          className="p-2 rounded-full hover:bg-gray-100"
+          title="Settings"
+        >
+          <Settings className="w-5 h-5 text-gray-700" />
+        </button>
+
+        <button
+          onClick={() => setActiveTab("profile")}
+          className="p-2 rounded-full hover:bg-gray-100"
+          title="Profile"
+        >
+          <User className="w-5 h-5 text-gray-700" />
+        </button>
       </div>
-    </div>
+    </header>
   );
 }
